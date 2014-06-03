@@ -92,7 +92,6 @@ JBUS.prototype = (function () {
   var startFlushQueue = function(JBUScontext) {
     if (!JBUScontext.isFlushQueuePaused) {
       if (JBUScontext.msgQueue.length === 0) {
-        console.log('Queue Empty!');
         window.setTimeout(function(){
           startFlushQueue(JBUScontext);
         }, JBUScontext.ticker);
