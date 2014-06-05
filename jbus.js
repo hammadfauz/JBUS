@@ -27,6 +27,12 @@ JBUS.prototype = (function () {
         }
       }
     },
+    subscribeTo : function (target) {
+      if (typeof target.jbusId === 'string' &&
+          target.subscribers.indexOf(this.jbusId) === -1) {
+        target.subscribers.push(this.jbusId);
+      }
+    },
     deleteSubscriber : function (subId) {
       if (typeof subId.jbusId === 'string') {
         var subIndex = this.subscribers.indexOf(subId.jbusId);
@@ -67,6 +73,7 @@ JBUS.prototype = (function () {
       };
       targetObject.subscribers = [];
       targetObject.addSubscriber = endpointPrivate.addSubscriber;
+      targetObject.subscribeTo = endpointPrivate.subscribeTo;
       targetObject.deleteSubscriber = endpointPrivate.deleteSubscriber;
       targetObject.send2Subscribers = endpointPrivate.send2Subscribers;
       this.endpoints[Id] = targetObject;
@@ -80,6 +87,7 @@ JBUS.prototype = (function () {
     delete targetObject.onGetMsg;
     delete targetObject.subscribers;
     delete targetObject.addSubscriber;
+    delete targetObject.subscribeTo;
     delete targetObject.send2Subscribers;
   };
   var queueMsg = function (sourceId, destinationId, payload, JBUScontext) {
