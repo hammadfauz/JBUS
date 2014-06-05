@@ -15,9 +15,10 @@ var dataObj = {};
 myBus.makeEndpoint(el);
 myBus.makeEndpoint(dataObj);
 ```
-- Add el as subscriber to dataObj
+- Add el as subscriber to dataObj or make el subscribe to dataObj
 ```
-dataObj.addSubscriber(el);
+dataObj.addSubscriber(el); // or
+el.subscribeTo(dataObj);
 ```
 - el can react to the message sent
 ```
