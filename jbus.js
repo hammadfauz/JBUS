@@ -68,9 +68,11 @@ JBUS.prototype = (function () {
       targetObject.sendMsg = function (destinationId, payload) {
         queueMsg(this.jbusId, destinationId, payload, JBUScontext);
       };
-      targetObject.onGetMsg = function (payload, source){
-        console.log(payload);
-      };
+      if (typeof targetObject.onGetMsg === 'undefined') {
+        targetObject.onGetMsg = function (payload, source){
+          console.log(payload);
+        };
+      }
       targetObject.subscribers = [];
       targetObject.addSubscriber = endpointPrivate.addSubscriber;
       targetObject.subscribeTo = endpointPrivate.subscribeTo;
