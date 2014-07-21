@@ -1,0 +1,28 @@
+{
+  "name": "JBUS",
+  "version": "0.0.1",
+  "homepage": "https://github.com/hammadfauz/JBUS",
+  "description": "A bus for generic inter-object communication.",
+  "main": "jbus.js",
+  "moduleType": [
+    "globals"
+  ],
+  "keywords": [
+    "bus",
+    "communication",
+    "protocol",
+    "pubsub",
+    "mv*"
+  ],
+  "authors": [
+    "Hammad Fauz"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
