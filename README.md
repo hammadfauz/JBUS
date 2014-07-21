@@ -2,6 +2,13 @@ JBUS
 ====
 A bus for inter-object communication
 
+Installation
+============
+- install as a bower package
+```
+bower install JBUS
+```
+
 Usage
 =====
 - create a bus instance
